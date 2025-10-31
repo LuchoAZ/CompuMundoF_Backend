@@ -5,10 +5,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-public abstract class BaseController <D, DC, ID>{
+public abstract class BaseController <D, DC, ID, DE>{
 
     @Autowired
-    BaseService<D,DC,ID> baseService;
+    BaseService<D,DC,ID,DE> baseService;
 
     @PostMapping
     public ResponseEntity<?> save (@RequestBody DC dc){

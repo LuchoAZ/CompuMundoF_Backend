@@ -1,8 +1,7 @@
 package food.store.proyecto.entity.mapper;
 
 import food.store.proyecto.entity.Usuario;
-import food.store.proyecto.entity.dto.usuario.UsuarioCreate;
-import food.store.proyecto.entity.dto.usuario.UsuarioDto;
+import food.store.proyecto.entity.dto.usuario.*;
 import org.springframework.stereotype.Component;
 
 @Component

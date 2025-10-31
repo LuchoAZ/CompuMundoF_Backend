@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
-public abstract class BaseImpl <E extends Base,D,DC,ID> implements BaseService<D,DC,ID> {
+public abstract class BaseImpl <E extends Base,D,DC,ID,DE> implements BaseService<D,DC,ID,DE> {
 
     @Autowired
     BaseRepository<E,ID> baseRepository;

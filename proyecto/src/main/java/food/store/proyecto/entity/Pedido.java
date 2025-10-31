@@ -3,6 +3,7 @@ package food.store.proyecto.entity;
 import food.store.proyecto.entity.enums.Estado;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.*;
@@ -22,7 +23,8 @@ public class Pedido extends Base {
     @Enumerated(EnumType.STRING)
     private Estado estado;
 
-//    @OneToMany
-//    @JoinColumn(name = "pedido_id") // FK en detalle_pedido
-//    private List<DetallePedido> detalles;
+    // Composición: Pedido contiene DetallePedido (unidireccional)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "pedido_id", nullable = false) // FK en DetallePedido
+    private List<DetallePedido> detalles = new ArrayList<>();
 }

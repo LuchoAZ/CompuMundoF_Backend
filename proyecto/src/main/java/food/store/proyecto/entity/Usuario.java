@@ -27,8 +27,8 @@ public class Usuario extends Base{
     @Enumerated(EnumType.STRING) // se determina el rol como String
     private Rol rol;
 
-//    @OneToMany //(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "usuario_id") // FK en la tabla pedido
-//    private List<Pedido> pedidos;
+    @OneToMany //(cascade = CascadeType.ALL)
+    @JoinColumn(name = "usuario_id") // FK en la tabla pedido
+    private List<Pedido> pedidos;
 
 }
