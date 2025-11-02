@@ -22,7 +22,8 @@ public class ProductoMapper implements BaseMapper<Producto, ProductoDto, Product
         return new ProductoDto(
                 producto.getId(),
                 producto.getNombre(),
-                producto.getPrecio()
+                producto.getPrecio(),
+                producto.getCategoria().getId()
         );
     }
 }

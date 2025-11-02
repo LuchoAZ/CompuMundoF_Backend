@@ -17,6 +17,8 @@ public class SecurityConfig {
         http.csrf(csrf -> csrf.disable()) // Deshabilita el csrf para que no se genere un token
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/auth/**").permitAll() // endpoints de autenticación públicos
+                        .requestMatchers("/categorias/**").permitAll() // ahora categorías públicas
+                        .requestMatchers("/productos/**").permitAll() // ahora categorías públicas
                         .anyRequest().authenticated() // resto protegido
                 ); // authorizeHttpRequests es un metodo que permite configurar las reglas de autorización
 
