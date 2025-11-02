@@ -17,7 +17,7 @@ public class Producto extends Base {
     private String nombre;
     private double precio;
 
-   @ManyToOne
+    @ManyToOne
     @JoinColumn(name = "categoria_id", nullable = false)
     private Categoria categoria;
 }

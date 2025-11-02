@@ -9,7 +9,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/categorias")
+@CrossOrigin(origins="*")
+@RequestMapping("/api/categorias")
 public class CategoriaController extends BaseController<CategoriaDto, CategoriaCreate,Long, CategoriaEdit> {
 
     @Autowired
