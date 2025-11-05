@@ -25,6 +25,8 @@ public class CategoriaImpl extends BaseImpl<Categoria, CategoriaDto, CategoriaCr
                 .orElseThrow(() -> new RuntimeException("Categoría no encontrada con ID: " + id));
 
         categoria.setNombre(editDto.nombre());
+        categoria.setImagen(editDto.imagen());
+        categoria.setDescripcion(editDto.descripcion());
 
         Categoria actualizada = categoriaRepository.save(categoria);
         return categoriaMapper.toDto(actualizada);

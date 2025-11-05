@@ -11,6 +11,8 @@ public class CategoriaMapper implements BaseMapper<Categoria, CategoriaDto, Cate
         if (categoriaCreate == null) return null;
         return Categoria.builder()
                 .nombre(categoriaCreate.nombre())
+                .descripcion(categoriaCreate.descripcion())
+                .imagen(categoriaCreate.imagen())
                 .build();
     }
 
@@ -19,7 +21,9 @@ public class CategoriaMapper implements BaseMapper<Categoria, CategoriaDto, Cate
         if (categoria == null) return null;
         return new CategoriaDto(
                 categoria.getId(),
-                categoria.getNombre()
+                categoria.getNombre(),
+                categoria.getImagen(),
+                categoria.getDescripcion()
         );
     }
 }

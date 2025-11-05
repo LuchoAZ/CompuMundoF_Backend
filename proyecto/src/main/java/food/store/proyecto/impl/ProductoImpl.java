@@ -28,6 +28,13 @@ public class ProductoImpl extends BaseImpl<Producto, ProductoDto, ProductoCreate
 
         producto.setNombre(editDto.nombre());
         producto.setPrecio(editDto.precio());
+        //Chequear cambio de categoria dentro de la página
+        //producto.setCategoria(editDto.categoriaId());
+        producto.setDescripcion(editDto.descripcion());
+        producto.setImagen(editDto.imagen());
+        producto.setStock(editDto.stock());
+        producto.setDisponible(editDto.disponible());
+
         if (editDto.categoriaId() != null) {
             Categoria categoria = categoriaRepository.findById(editDto.categoriaId())
                     .orElseThrow(() -> new RuntimeException("Categoría no encontrada"));

@@ -16,7 +16,10 @@ import java.util.List;
 
 @Entity
 public class Categoria extends Base{
+
     private String nombre;
+    private String imagen;
+    private String descripcion;
 
     @OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL, orphanRemoval = false)
     private List<Producto> productos;

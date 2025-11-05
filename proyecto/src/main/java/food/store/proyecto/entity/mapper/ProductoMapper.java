@@ -13,6 +13,11 @@ public class ProductoMapper implements BaseMapper<Producto, ProductoDto, Product
         return Producto.builder()
                 .nombre(productoCreate.nombre())
                 .precio(productoCreate.precio())
+                .descripcion(productoCreate.descripcion())
+                .imagen(productoCreate.imagen())
+                .stock(productoCreate.stock())
+                .disponible(productoCreate.disponible())
+                //.categoria(productoCreate.categoriaId().getId())
                 .build();
     }
 
@@ -23,7 +28,11 @@ public class ProductoMapper implements BaseMapper<Producto, ProductoDto, Product
                 producto.getId(),
                 producto.getNombre(),
                 producto.getPrecio(),
-                producto.getCategoria().getId()
+                producto.getCategoria().getId(), //se usa getId en lugar de getCategoriaId porque es un objeto
+                producto.getDescripcion(),
+                producto.getImagen(),
+                producto.getStock(),
+                producto.isDisponible()  //se usa isDisponible en lugar de getDisponible porque es un booleano
         );
     }
 }

@@ -16,6 +16,10 @@ public class Producto extends Base {
 
     private String nombre;
     private double precio;
+    private String imagen;
+    private String descripcion;
+    private int stock;
+    private boolean disponible;
 
     @ManyToOne
     @JoinColumn(name = "categoria_id", nullable = false)
