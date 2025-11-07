@@ -112,7 +112,7 @@ public class AuthServiceImpl implements AuthService {
 
 // Si las credenciales son válidas generamos y devolvemos el token
             String token = jwtUtil.generateToken(user.getMail(), user.getRol().name());
-            return new AuthResponse(user.getId(), user.getMail(), user.getRol().name(), token);
+            return new AuthResponse(user.getId(), user.getNombre(), user.getRol().name(), token);
         }
 
 
