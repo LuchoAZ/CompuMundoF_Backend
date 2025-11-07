@@ -19,7 +19,7 @@ public class DetallePedido extends Base {
 
 
     // Relación muchos a uno: muchos detalles pueden compartir un producto, pero cada detalle solo puede tener asociado un producto
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY) //fe
     @JoinColumn(name = "producto_id", nullable = false) // FK en la tabla detalle_pedido
     private Producto producto;
 

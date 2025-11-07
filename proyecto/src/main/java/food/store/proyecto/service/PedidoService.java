@@ -1,4 +1,6 @@
 package food.store.proyecto.service;
 
-public interface PedidoService {
+import food.store.proyecto.entity.dto.pedido.*;
+
+public interface PedidoService extends BaseService<PedidoDto, PedidoCreate, Long, PedidoEdit> {
 }

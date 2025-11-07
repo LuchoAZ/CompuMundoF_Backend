@@ -1,4 +1,6 @@
 package food.store.proyecto.repository;
 
-public interface DetallePedidoRepository {
+import food.store.proyecto.entity.DetallePedido;
+
+public interface DetallePedidoRepository extends BaseRepository<DetallePedido, Long> {
 }

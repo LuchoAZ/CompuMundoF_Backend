@@ -8,6 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("usuario")
+@RequestMapping("/api/usuarios")
 public class UsuarioController extends BaseController<UsuarioDto, UsuarioCreate,Long,UsuarioEdit>{
 }

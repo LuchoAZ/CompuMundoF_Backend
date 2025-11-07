@@ -26,5 +26,6 @@ public class Pedido extends Base {
     // Composición: Pedido contiene DetallePedido (unidireccional)
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "pedido_id", nullable = false) // FK en DetallePedido
+    @Builder.Default
     private List<DetallePedido> detalles = new ArrayList<>();
 }
