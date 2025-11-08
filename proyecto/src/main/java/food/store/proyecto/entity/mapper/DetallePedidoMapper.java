@@ -36,9 +36,18 @@ public class DetallePedidoMapper implements BaseMapper<DetallePedido, DetallePed
     //Metodo para editar detallePedido desde Pedido
     public DetallePedido toEntityFromEdit(DetallePedidoEdit edit) {
         if (edit == null) return null;
+
         DetallePedido detalle = new DetallePedido();
+        detalle.setId(edit.id());
         detalle.setCantidad(edit.cantidad());
         detalle.setSubtotal(edit.subtotal());
+
+        if (edit.productoId() != null) {
+            Producto producto = new Producto();
+            producto.setId(edit.productoId());
+            detalle.setProducto(producto);
+        }
+
         return detalle;
     }
 }
