@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -27,8 +28,7 @@ public class Usuario extends Base{
     @Enumerated(EnumType.STRING) // se determina el rol como String
     private Rol rol;
 
-    @OneToMany //(cascade = CascadeType.ALL)
-    @JoinColumn(name = "usuario_id") // FK en la tabla pedido
-    private List<Pedido> pedidos;
-
+    // 🔸 relación inversa, NO dueña (mappedBy = "usuario")
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = false)
+    private List<Pedido> pedidos = new ArrayList<>();
 }

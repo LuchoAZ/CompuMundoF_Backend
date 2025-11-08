@@ -18,14 +18,18 @@ import lombok.experimental.SuperBuilder;
 
 @Entity
 public class Pedido extends Base {
-    private LocalDate fecha;
+    private LocalDate fecha;//posible migracion a localdatetime para obtener hora
     private double total;
     @Enumerated(EnumType.STRING)
     private Estado estado;
 
+    // 🔸 DUEÑO de la relación: guarda usuario_id en la tabla pedido
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "usuario_id", nullable = false)
+    private Usuario usuario;
+
     // Composición: Pedido contiene DetallePedido (unidireccional)
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "pedido_id", nullable = false) // FK en DetallePedido
-    @Builder.Default
-    private List<DetallePedido> detalles = new ArrayList<>();
+    // 🔸 Composición: pedido -> detalle (cascade + orphanRemoval)
+    @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<DetallePedido> items = new ArrayList<>();
 }

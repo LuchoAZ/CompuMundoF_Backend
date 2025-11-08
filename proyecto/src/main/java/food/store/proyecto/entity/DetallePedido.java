@@ -1,26 +1,29 @@
 package food.store.proyecto.entity;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+
+import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-@Setter
 @Getter
+@Setter
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
 
 @Entity
 public class DetallePedido extends Base {
+
     private int cantidad;
     private double subtotal;
+    private boolean eliminado = false; // opcional, útil para borrado lógico
 
-
-    // Relación muchos a uno: muchos detalles pueden compartir un producto, pero cada detalle solo puede tener asociado un producto
-    @ManyToOne(fetch = FetchType.LAZY) //fe
-    @JoinColumn(name = "producto_id", nullable = false) // FK en la tabla detalle_pedido
+    // 🔸 Cada detalle pertenece a un producto
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "producto_id", nullable = false)
     private Producto producto;
 
+    // 🔸 Cada detalle pertenece a un pedido (relación de composición)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "pedido_id", nullable = false)
+    private Pedido pedido;
 }
