@@ -18,7 +18,7 @@ public class DetallePedido extends Base {
     private boolean eliminado = false; // opcional, útil para borrado lógico
 
     // 🔸 Cada detalle pertenece a un producto
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(optional = false)
     @JoinColumn(name = "producto_id", nullable = false)
     private Producto producto;
 
